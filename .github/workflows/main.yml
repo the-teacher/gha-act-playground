@@ -1,0 +1,12 @@
+name: CI
+on: push
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step
+        run: echo 'Hello World from the first step'
+
+      - name: Second step
+        run: echo 'Hello World from the second step'
