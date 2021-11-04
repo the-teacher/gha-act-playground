@@ -5,6 +5,11 @@ A playground to play with github actions/workflows locally.
 - https://github.com/nektos/act
 - https://docs.github.com/en/actions
 
+
+### Install
+
+- brew install act
+
 ### License
 
 MIT

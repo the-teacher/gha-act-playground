@@ -1,12 +1,20 @@
-name: CI
-on: push
+name: Matrix Playground
+
+on:
+  workflow_dispatch:
 
 jobs:
-  first_job:
+  one:
+    name: Cypress tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: ['billing', 'staff-portal']
     steps:
-      - name: First step
-        run: echo 'Hello World from the first step'
+      - name: Run cypress for billing
+        if: matrix.project == 'billing'
+        run: echo 'run specs for ${{ matrix.project }}'
 
-      - name: Second step
-        run: echo 'Hello World from the second step'
+      - name: Run cypress for staff-portal
+        if: matrix.project == 'staff-portal'
+        run: echo 'run specs for ${{ matrix.project }}'
