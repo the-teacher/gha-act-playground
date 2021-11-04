@@ -10,6 +10,12 @@ A playground to play with github actions/workflows locally.
 
 - brew install act
 
+### Run
+
+```
+act -e github-comment-body.json
+```
+
 ### License
 
 MIT

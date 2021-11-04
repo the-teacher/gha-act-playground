@@ -1,7 +1,6 @@
 name: Matrix Playground
 
-on:
-  workflow_dispatch:
+on: push
 
 jobs:
   one:
@@ -18,3 +17,14 @@ jobs:
       - name: Run cypress for staff-portal
         if: matrix.project == 'staff-portal'
         run: echo 'run specs for ${{ matrix.project }}'
+
+  second_job:
+    name: Comment based job
+    runs-on: ubuntu-latest
+    steps:
+      # - name: See params
+      #   env:
+      #     GITHUB_CONTEXT: ${{ toJSON(github) }}
+      #   run: echo "${GITHUB_CONTEXT}"
+      - name: Parse the comment
+        run: echo 'COMMENT BODY = ${{ github.event.comment.body }}'
